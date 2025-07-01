@@ -1,8 +1,14 @@
+import os
 import openai
-from flask import Flask, request
+from flask import Flask, request, Response
 from twilio.twiml.voice_response import VoiceResponse
-from config import OPENAI_API_KEY, TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER
 from twilio.rest import Client
+
+# Configurações (usando variáveis de ambiente)
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY', 'sk-...XNQA')
+TWILIO_ACCOUNT_SID = os.environ.get('TWILIO_ACCOUNT_SID', 'TWILIO_ACCOUNT_SID = "AC4bbabb8e3bf819923a6d840e38261e86"')
+TWILIO_AUTH_TOKEN = os.environ.get('TWILIO_AUTH_TOKEN', 'TWILIO_AUTH_TOKEN = "028d320da76f76d29e80e3a3bf492406"')
+TWILIO_PHONE_NUMBER = os.environ.get('TWILIO_PHONE_NUMBER', '+14176200241')
 
 # Configuração da OpenAI e Twilio
 openai.api_key = OPENAI_API_KEY
